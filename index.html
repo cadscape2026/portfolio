@@ -1,0 +1,2410 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | 3D Artist, CAD Designer & Aerospace Engineering Student</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-main: #050811;
+      --bg-elevated: rgba(12, 19, 36, 0.78);
+      --bg-card: rgba(15, 23, 42, 0.76);
+      --bg-soft: rgba(30, 41, 59, 0.55);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-subtle: #64748b;
+      --border-color: rgba(148, 163, 184, 0.16);
+      --border-strong: rgba(56, 189, 248, 0.35);
+      --accent: #38bdf8;
+      --accent-strong: #0284c7;
+      --accent-soft: rgba(56, 189, 248, 0.14);
+      --indigo: #818cf8;
+      --indigo-soft: rgba(129, 140, 248, 0.14);
+      --emerald: #34d399;
+      --emerald-soft: rgba(52, 211, 153, 0.14);
+      --rose: #fb7185;
+      --rose-soft: rgba(251, 113, 133, 0.16);
+      --grid-line: rgba(56, 189, 248, 0.055);
+      --shadow-card: 0 20px 50px -15px rgba(0, 0, 0, 0.65);
+    }
+
+    html.light {
+      --bg-main: #f1f5f9;
+      --bg-elevated: rgba(255, 255, 255, 0.85);
+      --bg-card: rgba(255, 255, 255, 0.88);
+      --bg-soft: rgba(241, 245, 249, 0.9);
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --text-subtle: #64748b;
+      --border-color: rgba(15, 23, 42, 0.12);
+      --border-strong: rgba(2, 132, 199, 0.35);
+      --accent: #0284c7;
+      --accent-strong: #0369a1;
+      --accent-soft: rgba(2, 132, 199, 0.1);
+      --indigo: #4f46e5;
+      --indigo-soft: rgba(79, 70, 229, 0.1);
+      --emerald: #059669;
+      --emerald-soft: rgba(5, 150, 105, 0.12);
+      --rose: #e11d48;
+      --rose-soft: rgba(225, 29, 72, 0.12);
+      --grid-line: rgba(2, 132, 199, 0.06);
+      --shadow-card: 0 18px 40px -15px rgba(15, 23, 42, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      min-height: 100vh;
+      line-height: 1.6;
+      background-image:
+        linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+      background-size: 36px 36px;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    h1, h2, h3, h4, .font-display {
+      font-family: 'Space Grotesk', 'Inter', sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, textarea {
+      font-family: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* Strict Public View rule: hide all owner-only controls unless body has .owner-unlocked */
+    body:not(.owner-unlocked) .owner-only {
+      display: none !important;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    @media (min-width: 640px) {
+      .container {
+        padding: 0 1.75rem;
+      }
+    }
+
+    /* Top Navigation */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      background: var(--bg-elevated);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 64px;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      padding-top: 0.4rem;
+      padding-bottom: 0.4rem;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-weight: 700;
+      font-size: 0.98rem;
+      letter-spacing: -0.01em;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), var(--indigo));
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      box-shadow: 0 8px 20px -6px rgba(56, 189, 248, 0.5);
+      flex-shrink: 0;
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    @media (min-width: 768px) {
+      .nav-links {
+        display: flex;
+      }
+    }
+
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .mobile-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 0.45rem 1rem;
+      border-top: 1px solid var(--border-color);
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    @media (min-width: 768px) {
+      .mobile-nav {
+        display: none;
+      }
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.5rem 0.9rem;
+      border-radius: 11px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      border: 1px solid transparent;
+      transition: all 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--accent-strong);
+      color: #ffffff;
+      border-color: var(--accent);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent);
+      color: #04101d;
+    }
+
+    .btn-secondary {
+      background: var(--bg-soft);
+      color: var(--text-main);
+      border-color: var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--border-strong);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-muted);
+      border-color: var(--border-color);
+    }
+
+    .btn-ghost:hover {
+      color: var(--text-main);
+      border-color: var(--border-strong);
+    }
+
+    .btn-danger {
+      background: var(--rose-soft);
+      color: var(--rose);
+      border-color: rgba(251, 113, 133, 0.35);
+    }
+
+    .btn-danger:hover {
+      background: var(--rose);
+      color: #ffffff;
+    }
+
+    .owner-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: var(--emerald-soft);
+      color: var(--emerald);
+      border: 1px solid rgba(52, 211, 153, 0.35);
+    }
+
+    .owner-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--emerald);
+    }
+
+    /* Main Sections */
+    main.container {
+      padding-top: 2.25rem;
+      padding-bottom: 4.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 4.25rem;
+    }
+
+    section[id] {
+      scroll-margin-top: 5.5rem;
+    }
+
+    .surface {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      box-shadow: var(--shadow-card);
+    }
+
+    /* About / Hero */
+    .about-card {
+      padding: 1.75rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (min-width: 640px) {
+      .about-card {
+        padding: 2.5rem;
+      }
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (min-width: 960px) {
+      .about-grid {
+        grid-template-columns: 300px 1fr;
+        gap: 3rem;
+      }
+    }
+
+    .profile-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.9rem;
+    }
+
+    .profile-frame {
+      width: 100%;
+      max-width: 290px;
+      aspect-ratio: 4 / 5;
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--bg-soft);
+      border: 1px solid var(--border-color);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile-frame.drop-active {
+      border: 2px dashed var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .profile-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      cursor: zoom-in;
+      display: block;
+    }
+
+    .profile-empty {
+      padding: 1.5rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .profile-overlay-actions {
+      position: absolute;
+      bottom: 0.65rem;
+      left: 0.65rem;
+      right: 0.65rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.45rem;
+      border-radius: 12px;
+      background: rgba(5, 8, 17, 0.82);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      background: var(--emerald-soft);
+      color: var(--emerald);
+      border: 1px solid rgba(52, 211, 153, 0.25);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+    }
+
+    .hero-title-display {
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -0.025em;
+      margin-top: 0.35rem;
+    }
+
+    .hero-name-input {
+      width: 100%;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -0.025em;
+      color: var(--text-main);
+      background: var(--bg-soft);
+      border: 1px solid var(--border-strong);
+      border-radius: 12px;
+      padding: 0.25rem 0.65rem;
+      margin-top: 0.35rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 0.45rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .bio-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      color: var(--text-muted);
+      font-size: 0.98rem;
+    }
+
+    .bio-copy strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.4rem;
+    }
+
+    /* Section Headers */
+    .section-head {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (min-width: 640px) {
+      .section-head-row {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+      }
+    }
+
+    .section-title {
+      font-size: clamp(1.5rem, 3vw, 2.15rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-top: 0.2rem;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      max-width: 44rem;
+    }
+
+    /* Expertise Grid */
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.85rem;
+    }
+
+    @media (min-width: 640px) {
+      .expertise-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+      }
+    }
+
+    .expertise-item {
+      padding: 1.15rem;
+      border-radius: 18px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      transition: transform 0.18s ease, border-color 0.18s ease;
+    }
+
+    .expertise-item:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-strong);
+    }
+
+    .expertise-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.7rem;
+    }
+
+    .expertise-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .expertise-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    /* Projects */
+    .projects-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .project-card {
+      padding: 1.65rem;
+    }
+
+    @media (min-width: 768px) {
+      .project-card {
+        padding: 2.25rem;
+      }
+    }
+
+    .project-top {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      padding-bottom: 1.35rem;
+      margin-bottom: 1.65rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    @media (min-width: 960px) {
+      .project-top {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+      }
+    }
+
+    .project-meta-chips {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.45rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .chip-role {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.22rem 0.65rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid rgba(56, 189, 248, 0.28);
+    }
+
+    .chip-team {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.22rem 0.65rem;
+      border-radius: 999px;
+      background: var(--indigo-soft);
+      color: var(--indigo);
+      border: 1px solid rgba(129, 140, 248, 0.28);
+    }
+
+    .project-title {
+      font-size: clamp(1.35rem, 2.5vw, 1.9rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .domain-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .domain-pill {
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: var(--bg-soft);
+      color: var(--text-muted);
+      border: 1px solid var(--border-color);
+    }
+
+    .project-body {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    @media (min-width: 960px) {
+      .project-body {
+        grid-template-columns: 1.05fr 1fr;
+        gap: 2.25rem;
+      }
+    }
+
+    .project-paragraphs {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .contrib-box {
+      margin-top: 1.2rem;
+      padding: 1.15rem 1.25rem;
+      border-radius: 16px;
+      background: var(--bg-soft);
+      border: 1px solid var(--border-color);
+    }
+
+    .contrib-box h4 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-main);
+      margin-bottom: 0.65rem;
+    }
+
+    .contrib-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .contrib-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .contrib-bullet {
+      color: var(--accent);
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .project-footer-meta {
+      margin-top: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .meta-line {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .meta-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-subtle);
+    }
+
+    .tool-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .tool-tag {
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.25rem 0.65rem;
+      border-radius: 8px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    .meta-text-value {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    /* Project Media Slots */
+    .project-media-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.95rem;
+    }
+
+    .project-img-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.85rem;
+    }
+
+    @media (min-width: 540px) {
+      .project-img-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .media-slot {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--bg-soft);
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .media-slot.empty-slot {
+      border-style: dashed;
+      border-width: 1.5px;
+    }
+
+    .media-slot.drop-active {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .media-slot img,
+    .media-slot video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .media-slot img {
+      cursor: zoom-in;
+    }
+
+    .slot-caption-bar {
+      position: absolute;
+      bottom: 0.5rem;
+      left: 0.5rem;
+      right: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.4rem;
+      pointer-events: none;
+    }
+
+    .slot-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.22rem 0.55rem;
+      border-radius: 8px;
+      background: rgba(5, 8, 17, 0.78);
+      color: #f8fafc;
+      backdrop-filter: blur(6px);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .slot-controls {
+      display: flex;
+      gap: 0.3rem;
+      pointer-events: auto;
+    }
+
+    .slot-btn {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.22rem 0.5rem;
+      border-radius: 7px;
+      border: none;
+      background: rgba(5, 8, 17, 0.85);
+      color: #ffffff;
+    }
+
+    .slot-btn:hover {
+      background: var(--accent-strong);
+    }
+
+    .slot-btn.del:hover {
+      background: var(--rose);
+    }
+
+    .slot-upload-trigger {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      padding: 0.85rem;
+      text-align: center;
+    }
+
+    .slot-upload-trigger:hover {
+      color: var(--accent);
+    }
+
+    .public-empty-note {
+      padding: 1.5rem;
+      border-radius: 16px;
+      background: var(--bg-soft);
+      border: 1px dashed var(--border-color);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    /* Gallery Section */
+    .gallery-card {
+      padding: 1.65rem;
+    }
+
+    @media (min-width: 768px) {
+      .gallery-card {
+        padding: 2.25rem;
+      }
+    }
+
+    .gallery-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .filter-tabs {
+      display: inline-flex;
+      padding: 0.22rem;
+      border-radius: 11px;
+      background: var(--bg-soft);
+      border: 1px solid var(--border-color);
+      gap: 0.2rem;
+    }
+
+    .filter-tab {
+      padding: 0.35rem 0.75rem;
+      border-radius: 8px;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .filter-tab.active {
+      background: var(--accent-strong);
+      color: #ffffff;
+    }
+
+    .gallery-dropzone {
+      margin-top: 1.25rem;
+      padding: 1.35rem;
+      border-radius: 16px;
+      border: 1.5px dashed var(--border-color);
+      background: var(--bg-soft);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.86rem;
+    }
+
+    .gallery-dropzone.drop-active {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .gallery-grid {
+      margin-top: 1.4rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.15rem;
+    }
+
+    @media (min-width: 600px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 960px) {
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .gallery-item {
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--bg-soft);
+      border: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .gallery-thumb {
+      aspect-ratio: 16 / 10;
+      background: #02040a;
+      overflow: hidden;
+    }
+
+    .gallery-thumb img,
+    .gallery-thumb video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-thumb img {
+      cursor: zoom-in;
+    }
+
+    .gallery-item-bar {
+      padding: 0.7rem 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .gallery-item-title {
+      font-size: 0.82rem;
+      font-weight: 600;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .gallery-kind {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 0.15rem 0.45rem;
+      border-radius: 6px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      margin-right: 0.4rem;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 1.75rem 0;
+      color: var(--text-subtle);
+      font-size: 0.84rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+    }
+
+    @media (min-width: 640px) {
+      .footer-inner {
+        flex-direction: row;
+        text-align: left;
+      }
+    }
+
+    /* Modals */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      background: rgba(2, 6, 17, 0.82);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal-box {
+      width: 100%;
+      max-width: 440px;
+      border-radius: 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-card);
+    }
+
+    .modal-box.wide {
+      max-width: 640px;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .modal-box.lightbox-box {
+      max-width: 980px;
+      padding: 0;
+      overflow: hidden;
+      background: #050811;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding-bottom: 0.85rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .lightbox-box .modal-header {
+      padding: 0.85rem 1.15rem;
+      color: #f8fafc;
+      border-bottom-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .lightbox-stage {
+      background: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-height: 80vh;
+    }
+
+    .lightbox-stage img {
+      max-width: 100%;
+      max-height: 78vh;
+      object-fit: contain;
+    }
+
+    .lightbox-stage video {
+      width: 100%;
+      max-height: 78vh;
+    }
+
+    .form-group {
+      margin-top: 0.9rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      padding: 0.65rem 0.8rem;
+      border-radius: 11px;
+      border: 1px solid var(--border-color);
+      background: var(--bg-soft);
+      color: var(--text-main);
+      font-size: 0.9rem;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+
+    @media (min-width: 540px) {
+      .form-grid-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.55rem;
+      margin-top: 1.25rem;
+    }
+
+    .error-text {
+      color: var(--rose);
+      font-size: 0.8rem;
+      margin-top: 0.4rem;
+      min-height: 1.1em;
+    }
+
+    /* Toast */
+    .toast-wrap {
+      position: fixed;
+      bottom: 1.25rem;
+      right: 1.25rem;
+      z-index: 80;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      pointer-events: none;
+    }
+
+    .toast-item {
+      padding: 0.65rem 1rem;
+      border-radius: 12px;
+      background: #0f172a;
+      color: #f8fafc;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      font-size: 0.84rem;
+      font-weight: 500;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+    }
+  </style>
+</head>
+<body>
+
+  <div id="toastWrap" class="toast-wrap"></div>
+
+  <!-- Top Navigation Bar -->
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a href="#about" class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+          </svg>
+        </span>
+        <span>AERO // 3D PORTFOLIO</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="#about">About Me</a>
+        <a href="#expertise">Expertise</a>
+        <a href="#projects">Projects</a>
+        <a href="#gallery">Gallery</a>
+      </nav>
+
+      <div class="nav-controls">
+        <!-- Shown only when Owner Mode is unlocked -->
+        <span id="ownerModeBadge" class="owner-badge owner-only">
+          <span class="owner-dot"></span>
+          <span>Owner Mode</span>
+        </span>
+
+        <button type="button" id="exportHtmlBtn" onclick="exportPublicHTML()" class="btn btn-primary owner-only" title="Download standalone index.html with embedded media for GitHub Pages">
+          Export Public HTML
+        </button>
+
+        <button type="button" id="lockViewBtn" onclick="lockOwnerMode()" class="btn btn-danger owner-only">
+          Lock View
+        </button>
+
+        <!-- Discrete Owner trigger in Public View -->
+        <button type="button" id="ownerLoginBtn" onclick="openPinModal()" class="btn btn-ghost">
+          Owner
+        </button>
+
+        <button type="button" id="themeToggleBtn" onclick="toggleTheme()" class="btn btn-secondary" aria-label="Toggle color theme">
+          Theme
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-nav">
+      <a href="#about">About Me</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#projects">Projects</a>
+      <a href="#gallery">Gallery</a>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ================================================================= -->
+    <!-- ABOUT ME SECTION                                                  -->
+    <!-- ================================================================= -->
+    <section id="about">
+      <div class="surface about-card">
+        <div class="about-grid">
+          <!-- Profile Photo Column -->
+          <div class="profile-column">
+            <div
+              id="profileFrame"
+              class="profile-frame"
+              ondragover="handleDragOver(event, this)"
+              ondragleave="handleDragLeave(this)"
+              ondrop="handleProfileDrop(event)"
+            >
+              <img id="profileImg" src="" alt="Profile Photo" class="profile-img hidden" onclick="openLightboxImage(this.src, 'Profile Photo')" />
+
+              <div id="profileEmptyOwner" class="profile-empty owner-only">
+                <p style="font-weight: 700; color: var(--text-main); margin-bottom: 0.3rem;">Upload Profile Photo</p>
+                <p style="font-size: 0.78rem; margin-bottom: 0.75rem;">Click below or drag &amp; drop an image</p>
+                <button type="button" onclick="document.getElementById('profileFileInput').click()" class="btn btn-primary">
+                  Choose Photo
+                </button>
+              </div>
+
+              <div id="profileEmptyPublic" class="profile-empty">
+                <p style="font-weight: 600; color: var(--text-muted);">3D Artist &amp; Aerospace Engineer</p>
+                <p style="font-size: 0.76rem; color: var(--text-subtle); margin-top: 0.25rem;">Portrait slot</p>
+              </div>
+
+              <div id="profileOverlayActions" class="profile-overlay-actions owner-only hidden">
+                <button type="button" onclick="document.getElementById('profileFileInput').click()" class="slot-btn">Replace</button>
+                <button type="button" onclick="removeProfilePhoto()" class="slot-btn del">Remove</button>
+              </div>
+
+              <input type="file" id="profileFileInput" accept="image/*" class="hidden owner-only" onchange="handleProfileFileChange(event)" />
+            </div>
+
+            <div class="status-pill">
+              <span>Blender • SolidWorks • Aerospace</span>
+            </div>
+          </div>
+
+          <!-- Bio Column -->
+          <div>
+            <span class="eyebrow">About Me</span>
+
+            <h1 id="publicNameHeading" class="hero-title-display">3D Artist, CAD Designer &amp; Aerospace Student</h1>
+            <input
+              type="text"
+              id="ownerNameInput"
+              value="3D Artist, CAD Designer &amp; Aerospace Student"
+              aria-label="Portfolio Display Name"
+              oninput="handleNameEdit(this.value)"
+              class="hero-name-input owner-only"
+            />
+
+            <p class="hero-subtitle">3D Modelling • Animation • Product Visualization • SolidWorks CAD</p>
+
+            <div class="bio-copy">
+              <p>
+                I am a passionate <strong>3D Artist, Designer, and Aerospace Engineering student</strong> with a strong interest in 3D modelling, animation, product visualization, and creative design. I specialize in creating detailed 3D models, realistic environments, cinematic renders, and animations using <strong>Blender</strong>.
+              </p>
+              <p>
+                Alongside my creative skills, I have experience in CAD modelling and mechanical design using <strong>SolidWorks</strong> and other design tools. I enjoy transforming ideas and concepts into visually engaging and technically detailed 3D creations.
+              </p>
+              <p>
+                My work combines creativity, technical knowledge, and attention to detail, with a continuous passion for learning new techniques and exploring innovative design possibilities.
+              </p>
+            </div>
+
+            <div class="hero-cta-row">
+              <a href="#projects" class="btn btn-primary">Explore Projects</a>
+              <a href="#gallery" class="btn btn-secondary">Media Gallery</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- AREAS OF EXPERTISE                                                -->
+    <!-- ================================================================= -->
+    <section id="expertise">
+      <div class="section-head section-head-row">
+        <div>
+          <span class="eyebrow">Capabilities</span>
+          <h2 class="section-title">Areas of Expertise</h2>
+        </div>
+        <p class="section-sub">3D Modelling | 3D Animation | Product Visualization | Environment Design | VFX | CAD Design | Rendering | Motion Graphics</p>
+      </div>
+      <div id="expertiseGrid" class="expertise-grid"></div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- PROJECTS SECTION                                                  -->
+    <!-- ================================================================= -->
+    <section id="projects">
+      <div class="section-head section-head-row">
+        <div>
+          <span class="eyebrow">Aerospace &amp; Robotics</span>
+          <h2 class="section-title">Engineering &amp; 3D Projects</h2>
+          <p class="section-sub">Mechanical assemblies, propulsion mechanisms, and 3D animations.</p>
+        </div>
+        <button type="button" onclick="openNewProjectModal()" class="btn btn-primary owner-only">
+          + Add New Project
+        </button>
+      </div>
+      <div id="projectsContainer" class="projects-stack"></div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- WORK & SHOWREEL GALLERY                                           -->
+    <!-- ================================================================= -->
+    <section id="gallery">
+      <div class="surface gallery-card">
+        <div class="gallery-toolbar">
+          <div>
+            <span class="eyebrow">Renders &amp; Animations</span>
+            <h2 class="section-title">Work &amp; Showreel Gallery</h2>
+          </div>
+
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem;">
+            <div class="filter-tabs" role="tablist" aria-label="Filter gallery media">
+              <button type="button" id="tabAll" onclick="setGalleryFilter('all')" class="filter-tab active">All</button>
+              <button type="button" id="tabImage" onclick="setGalleryFilter('image')" class="filter-tab">Images</button>
+              <button type="button" id="tabVideo" onclick="setGalleryFilter('video')" class="filter-tab">Videos</button>
+            </div>
+
+            <button type="button" onclick="document.getElementById('galleryFileInput').click()" class="btn btn-primary owner-only">
+              + Upload Photos / Videos
+            </button>
+            <input type="file" id="galleryFileInput" accept="image/*,video/*" multiple class="hidden owner-only" onchange="handleGalleryFileChange(event)" />
+          </div>
+        </div>
+
+        <div
+          id="galleryDropzone"
+          class="gallery-dropzone owner-only"
+          ondragover="handleDragOver(event, this)"
+          ondragleave="handleDragLeave(this)"
+          ondrop="handleGalleryDrop(event)"
+          onclick="document.getElementById('galleryFileInput').click()"
+        >
+          <p style="font-weight: 600; color: var(--text-main);">Click or drag &amp; drop images and videos here</p>
+          <p style="font-size: 0.78rem; margin-top: 0.2rem;">Saved locally in IndexedDB; use "Export Public HTML" to embed into a standalone file for GitHub Pages.</p>
+        </div>
+
+        <div id="galleryGrid" class="gallery-grid"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>3D Artist, CAD Designer &amp; Aerospace Engineering Student</span>
+      <span>Blender • SolidWorks • Mechanical &amp; Visual Design</span>
+    </div>
+  </footer>
+
+  <!-- ================================================================= -->
+  <!-- OWNER PIN MODAL                                                   -->
+  <!-- ================================================================= -->
+  <div id="pinModal" class="modal-backdrop hidden" onclick="closePinModal()">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h3 style="font-size: 1.15rem; font-weight: 700;">Owner Unlock</h3>
+        <button type="button" onclick="closePinModal()" class="btn btn-ghost" style="padding: 0.3rem 0.6rem;">✕</button>
+      </div>
+      <form onsubmit="handlePinSubmit(event)" class="form-group">
+        <label for="ownerPinInput" class="form-label">Enter Owner PIN</label>
+        <input type="password" id="ownerPinInput" class="form-input" placeholder="Enter PIN" autocomplete="off" required />
+        <p id="pinErrorMsg" class="error-text"></p>
+        <div class="modal-actions">
+          <button type="button" onclick="closePinModal()" class="btn btn-secondary">Cancel</button>
+          <button type="submit" class="btn btn-primary">Unlock Owner Mode</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- ADD NEW PROJECT MODAL                                             -->
+  <!-- ================================================================= -->
+  <div id="newProjectModal" class="modal-backdrop hidden" onclick="closeNewProjectModal()">
+    <div class="modal-box wide" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h3 style="font-size: 1.2rem; font-weight: 700;">Add New Project</h3>
+        <button type="button" onclick="closeNewProjectModal()" class="btn btn-ghost" style="padding: 0.3rem 0.6rem;">✕</button>
+      </div>
+      <form id="newProjectForm" onsubmit="handleCreateProject(event)">
+        <div class="form-group">
+          <label class="form-label" for="npTitle">Project Title *</label>
+          <input type="text" id="npTitle" class="form-input" required placeholder="e.g., Gimbal Thrust Stand CAD & Render" />
+        </div>
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="npRole">My Role (Optional)</label>
+            <input type="text" id="npRole" class="form-input" placeholder="e.g., CAD Head | Mechanical Design" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="npTeam">Team (Optional)</label>
+            <input type="text" id="npTeam" class="form-input" placeholder="e.g., Team Tarkashya" />
+          </div>
+        </div>
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="npTools">Tools Used (comma-separated)</label>
+            <input type="text" id="npTools" class="form-input" placeholder="SolidWorks, Blender" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="npDomain">Project Domain (comma-separated)</label>
+            <input type="text" id="npDomain" class="form-input" placeholder="Aerospace Engineering, Mechanical Design" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="npDesc">Description * (blank line separates paragraphs)</label>
+          <textarea id="npDesc" rows="4" class="form-textarea" required placeholder="Describe the project and engineering design..."></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="npContrib">My Contributions (one per line)</label>
+          <textarea id="npContrib" rows="3" class="form-textarea" placeholder="Designed 3D assembly in SolidWorks.&#10;Created Blender animation."></textarea>
+        </div>
+        <div class="modal-actions">
+          <button type="button" onclick="closeNewProjectModal()" class="btn btn-secondary">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Project</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- LIGHTBOX MODAL                                                    -->
+  <!-- ================================================================= -->
+  <div id="lightboxModal" class="modal-backdrop hidden" onclick="closeLightbox()">
+    <div class="modal-box lightbox-box" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <span id="lightboxTitle" style="font-weight: 600; font-size: 0.95rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Preview</span>
+        <button type="button" onclick="closeLightbox()" class="slot-btn" style="padding: 0.35rem 0.65rem;">✕</button>
+      </div>
+      <div class="lightbox-stage">
+        <img id="lightboxImg" src="" alt="Full preview" class="hidden" />
+        <video id="lightboxVideo" src="" controls autoplay class="hidden"></video>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // =====================================================================
+    // CONFIGURATION & EMBEDDED SNAPSHOT HOOK FOR GITHUB PAGES
+    // =====================================================================
+    const OWNER_PIN = '778899';
+    const MAX_EMBED_BYTES = 18 * 1024 * 1024; // 18 MB per-file ceiling for HTML export
+
+    // Populated automatically when exporting a standalone snapshot via "Export Public HTML"
+    window.__EMBEDDED_PORTFOLIO__ = null;
+
+    const EXPERTISE_LIST = [
+      { title: '3D Modelling', desc: 'Detailed hard-surface & 3D assets', icon: 'M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z' },
+      { title: '3D Animation', desc: 'Mechanical & cinematic motion', icon: 'M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z' },
+      { title: 'Product Visualization', desc: 'Clean studio & industrial visuals', icon: 'M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4' },
+      { title: 'Environment Design', desc: 'Atmospheric & technical scenes', icon: 'M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064' },
+      { title: 'VFX', desc: 'Visual effects & compositing', icon: 'M13 10V3L4 14h7v7l9-11h-7z' },
+      { title: 'CAD Design', desc: 'SolidWorks assemblies & parts', icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z' },
+      { title: 'Rendering', desc: 'High-detail lighting & materials', icon: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z' },
+      { title: 'Motion Graphics', desc: 'Animated sequences & graphics', icon: 'M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z' }
+    ];
+
+    const DEFAULT_PROJECTS = [
+      {
+        id: 'cdtvc-system',
+        number: 'PROJECT 01',
+        title: 'Cable Driven Thrust Vector Control (CDTVC) System',
+        role: '',
+        team: '',
+        tools: ['SolidWorks', 'Blender'],
+        domain: ['Aerospace Engineering', 'Mechanical Design', 'Thrust Vector Control'],
+        paragraphs: [
+          'The Cable Driven Thrust Vector Control (CDTVC) System is an aerospace engineering project focused on developing an alternative mechanism for controlling rocket thrust direction using a cable-driven arrangement.',
+          'The system utilizes high-strength steel cables, precision pulleys, and electromechanical actuators to achieve controlled movement of the thrust vector. The complete mechanical assembly was designed and modelled in SolidWorks, with a 3D animation created using Blender to demonstrate the mechanism and its working principle.'
+        ],
+        contributions: [
+          'Designed and developed the 3D mechanical components and assembly using SolidWorks.',
+          'Modelled the cable routing, pulley arrangement, and actuator mounting system.',
+          'Created a 3D animated demonstration of the mechanism using Blender.',
+          'Contributed to the mechanical design and visualization of the thrust vector control concept.'
+        ],
+        imageSlots: [
+          { key: 'cdtvc_img_1', label: 'SolidWorks Assembly View 1' },
+          { key: 'cdtvc_img_2', label: 'Cable & Pulley Detail View 2' },
+          { key: 'cdtvc_img_3', label: 'Blender Render View 3' }
+        ],
+        videoSlot: { key: 'cdtvc_vid_1', label: 'CDTVC Mechanism Animation' }
+      },
+      {
+        id: 'rover-tarkashya',
+        number: 'PROJECT 02',
+        title: 'Rover Mechanical Design – Team Tarkashya',
+        role: 'CAD Head | Mechanical Design',
+        team: 'Tarkashya – College Rover Development Team',
+        tools: ['SolidWorks', 'CAD Modelling', 'Mechanical Design', '3D Assembly'],
+        domain: ['Robotics', 'Mechanical Design', 'Rover Development'],
+        paragraphs: [
+          'As a member of Team Tarkashya, the college rover development team, I contributed to the mechanical design and development of a rover designed for challenging terrain and practical robotic applications.',
+          "My primary responsibility involved designing and developing the rover chassis and robotic arm, focusing on structural design, mechanical integration, and functional movement. I worked on creating 3D CAD models, developing mechanical assemblies, and refining the overall design to meet the project's requirements."
+        ],
+        contributions: [
+          'Designed and modelled the rover chassis, focusing on structural strength and component arrangement.',
+          'Developed the robotic arm assembly, including shoulder and elbow mechanisms.',
+          'Worked on actuator integration and mechanical movement considerations.',
+          'Created and refined 3D CAD models and mechanical assemblies.',
+          'Contributed to the overall mechanical design and development of the rover.'
+        ],
+        imageSlots: [
+          { key: 'rover_img_1', label: 'Rover Full Assembly View 1' },
+          { key: 'rover_img_2', label: 'Chassis Structural View 2' },
+          { key: 'rover_img_3', label: 'Robotic Arm Assembly View 3' }
+        ],
+        videoSlot: { key: 'rover_vid_1', label: 'Rover Mechanical Demo Video' }
+      }
+    ];
+
+    const appState = {
+      isOwner: false, // Always defaults to Public View
+      galleryFilter: 'all',
+      displayName: '3D Artist, CAD Designer & Aerospace Student',
+      projects: [],
+      gallery: [] // { id, name, type: 'image' | 'video' }
+    };
+
+    const objectUrlMap = new Map();
+    const embeddedMediaMap = new Map(); // key -> dataUrl from window.__EMBEDDED_PORTFOLIO__
+
+    // =====================================================================
+    // INDEXEDDB FOR LOCAL OWNER EDITING
+    // =====================================================================
+    const DB_NAME = 'AeroPortfolioMediaDB';
+    const STORE_NAME = 'blobs';
+
+    function openDB() {
+      return new Promise((resolve, reject) => {
+        const req = indexedDB.open(DB_NAME, 1);
+        req.onupgradeneeded = (e) => {
+          const db = e.target.result;
+          if (!db.objectStoreNames.contains(STORE_NAME)) {
+            db.createObjectStore(STORE_NAME);
+          }
+        };
+        req.onsuccess = () => resolve(req.result);
+        req.onerror = () => reject(req.error);
+      });
+    }
+
+    async function putBlob(key, fileOrBlob) {
+      const db = await openDB();
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction(STORE_NAME, 'readwrite');
+        tx.objectStore(STORE_NAME).put(fileOrBlob, key);
+        tx.oncomplete = () => {
+          if (objectUrlMap.has(key)) {
+            URL.revokeObjectURL(objectUrlMap.get(key));
+          }
+          const url = URL.createObjectURL(fileOrBlob);
+          objectUrlMap.set(key, url);
+          embeddedMediaMap.delete(key);
+          resolve(url);
+        };
+        tx.onerror = () => reject(tx.error);
+      });
+    }
+
+    async function getBlob(key) {
+      try {
+        const db = await openDB();
+        return new Promise((resolve) => {
+          const tx = db.transaction(STORE_NAME, 'readonly');
+          const req = tx.objectStore(STORE_NAME).get(key);
+          req.onsuccess = () => resolve(req.result || null);
+          req.onerror = () => resolve(null);
+        });
+      } catch {
+        return null;
+      }
+    }
+
+    async function getMediaSrc(key) {
+      if (objectUrlMap.has(key)) return objectUrlMap.get(key);
+      const blob = await getBlob(key);
+      if (blob) {
+        const url = URL.createObjectURL(blob);
+        objectUrlMap.set(key, url);
+        return url;
+      }
+      if (embeddedMediaMap.has(key)) return embeddedMediaMap.get(key);
+      return null;
+    }
+
+    async function removeBlob(key) {
+      embeddedMediaMap.delete(key);
+      if (objectUrlMap.has(key)) {
+        URL.revokeObjectURL(objectUrlMap.get(key));
+        objectUrlMap.delete(key);
+      }
+      try {
+        const db = await openDB();
+        return new Promise((resolve) => {
+          const tx = db.transaction(STORE_NAME, 'readwrite');
+          tx.objectStore(STORE_NAME).delete(key);
+          tx.oncomplete = () => resolve();
+          tx.onerror = () => resolve();
+        });
+      } catch {
+        // Ignore IDB errors
+      }
+    }
+
+    // =====================================================================
+    // STATE LOADING & OWNER LOCK / UNLOCK
+    // =====================================================================
+    function cloneDefaults() {
+      return JSON.parse(JSON.stringify(DEFAULT_PROJECTS));
+    }
+
+    function hydrateState() {
+      const embedded = window.__EMBEDDED_PORTFOLIO__;
+      if (embedded && typeof embedded === 'object') {
+        appState.displayName = embedded.displayName || appState.displayName;
+        appState.projects = Array.isArray(embedded.projects) && embedded.projects.length
+          ? embedded.projects
+          : cloneDefaults();
+        appState.gallery = Array.isArray(embedded.gallery) ? embedded.gallery : [];
+        if (embedded.media && typeof embedded.media === 'object') {
+          Object.entries(embedded.media).forEach(([k, v]) => {
+            if (typeof v === 'string' && v) embeddedMediaMap.set(k, v);
+          });
+        }
+        return;
+      }
+
+      const savedName = localStorage.getItem('aero_display_name');
+      if (savedName) appState.displayName = savedName;
+
+      try {
+        const savedProj = JSON.parse(localStorage.getItem('aero_projects'));
+        appState.projects = Array.isArray(savedProj) && savedProj.length ? savedProj : cloneDefaults();
+      } catch {
+        appState.projects = cloneDefaults();
+      }
+
+      try {
+        const savedGal = JSON.parse(localStorage.getItem('aero_gallery'));
+        appState.gallery = Array.isArray(savedGal) ? savedGal : [];
+      } catch {
+        appState.gallery = [];
+      }
+    }
+
+    function persistMetadata() {
+      localStorage.setItem('aero_display_name', appState.displayName);
+      localStorage.setItem('aero_projects', JSON.stringify(appState.projects));
+      localStorage.setItem('aero_gallery', JSON.stringify(appState.gallery));
+    }
+
+    function openPinModal() {
+      document.getElementById('pinErrorMsg').textContent = '';
+      document.getElementById('ownerPinInput').value = '';
+      document.getElementById('pinModal').classList.remove('hidden');
+      setTimeout(() => document.getElementById('ownerPinInput').focus(), 40);
+    }
+
+    function closePinModal() {
+      document.getElementById('pinModal').classList.add('hidden');
+      document.getElementById('pinErrorMsg').textContent = '';
+    }
+
+    function handlePinSubmit(e) {
+      e.preventDefault();
+      const entered = document.getElementById('ownerPinInput').value.trim();
+      if (entered === OWNER_PIN) {
+        appState.isOwner = true;
+        closePinModal();
+        syncOwnerModeUI();
+        renderAll();
+        showToast('Owner Mode unlocked');
+      } else {
+        document.getElementById('pinErrorMsg').textContent = 'Incorrect PIN.';
+      }
+    }
+
+    function lockOwnerMode() {
+      appState.isOwner = false;
+      closeNewProjectModal();
+      syncOwnerModeUI();
+      renderAll();
+      showToast('Locked to Public View');
+    }
+
+    function syncOwnerModeUI() {
+      document.body.classList.toggle('owner-unlocked', appState.isOwner);
+      document.getElementById('ownerLoginBtn').classList.toggle('hidden', appState.isOwner);
+      document.getElementById('publicNameHeading').classList.toggle('hidden', appState.isOwner);
+      document.getElementById('ownerNameInput').value = appState.displayName;
+      document.getElementById('publicNameHeading').textContent = appState.displayName;
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === 'e') {
+        e.preventDefault();
+        if (appState.isOwner) {
+          lockOwnerMode();
+        } else {
+          openPinModal();
+        }
+      }
+      if (e.key === 'Escape') {
+        closePinModal();
+        closeNewProjectModal();
+        closeLightbox();
+      }
+    });
+
+    function toggleTheme() {
+      const isLight = document.documentElement.classList.toggle('light');
+      document.documentElement.classList.toggle('dark', !isLight);
+      localStorage.setItem('aero_theme', isLight ? 'light' : 'dark');
+    }
+
+    function initTheme() {
+      const saved = localStorage.getItem('aero_theme');
+      if (saved === 'light') {
+        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.add('light');
+      } else {
+        document.documentElement.classList.add('dark');
+        document.documentElement.classList.remove('light');
+      }
+    }
+
+    // =====================================================================
+    // RENDERERS: EXPERTISE, PROFILE, PROJECTS, GALLERY
+    // =====================================================================
+    function renderExpertise() {
+      const grid = document.getElementById('expertiseGrid');
+      grid.innerHTML = EXPERTISE_LIST.map((item) => `
+        <div class="expertise-item">
+          <div class="expertise-icon" aria-hidden="true">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="${item.icon}" />
+            </svg>
+          </div>
+          <div class="expertise-title">${escapeHtml(item.title)}</div>
+          <div class="expertise-desc">${escapeHtml(item.desc)}</div>
+        </div>
+      `).join('');
+    }
+
+    async function renderProfilePhoto() {
+      const src = await getMediaSrc('profile_photo');
+      const img = document.getElementById('profileImg');
+      const emptyOwner = document.getElementById('profileEmptyOwner');
+      const emptyPublic = document.getElementById('profileEmptyPublic');
+      const overlayActions = document.getElementById('profileOverlayActions');
+      const frame = document.getElementById('profileFrame');
+
+      if (src) {
+        img.src = src;
+        img.classList.remove('hidden');
+        emptyOwner.classList.add('hidden');
+        emptyPublic.classList.add('hidden');
+        overlayActions.classList.toggle('hidden', !appState.isOwner);
+        frame.classList.remove('empty-slot');
+      } else {
+        img.src = '';
+        img.classList.add('hidden');
+        overlayActions.classList.add('hidden');
+        emptyOwner.classList.toggle('hidden', !appState.isOwner);
+        emptyPublic.classList.toggle('hidden', appState.isOwner);
+        frame.classList.add('empty-slot');
+      }
+    }
+
+    function handleNameEdit(val) {
+      if (!appState.isOwner) return;
+      appState.displayName = val;
+      document.getElementById('publicNameHeading').textContent = val;
+      persistMetadata();
+    }
+
+    async function handleProfileFileChange(e) {
+      if (!appState.isOwner) return;
+      const file = e.target.files[0];
+      e.target.value = '';
+      if (!file || !file.type.startsWith('image/')) {
+        showToast('Please select a valid image file.');
+        return;
+      }
+      await putBlob('profile_photo', file);
+      await renderProfilePhoto();
+      showToast('Profile photo updated');
+    }
+
+    async function handleProfileDrop(e) {
+      e.preventDefault();
+      handleDragLeave(e.currentTarget);
+      if (!appState.isOwner) return;
+      const file = e.dataTransfer.files[0];
+      if (!file || !file.type.startsWith('image/')) {
+        showToast('Please drop a valid image file.');
+        return;
+      }
+      await putBlob('profile_photo', file);
+      await renderProfilePhoto();
+      showToast('Profile photo updated');
+    }
+
+    async function removeProfilePhoto() {
+      if (!appState.isOwner) return;
+      await removeBlob('profile_photo');
+      await renderProfilePhoto();
+      showToast('Profile photo removed');
+    }
+
+    async function renderProjects() {
+      const container = document.getElementById('projectsContainer');
+      container.innerHTML = '';
+
+      for (const proj of appState.projects) {
+        const card = document.createElement('article');
+        card.className = 'surface project-card';
+
+        // Image slots: in Public View, only render slots that actually have media
+        const imageSlotsHtmlParts = [];
+        for (const slot of proj.imageSlots) {
+          const src = await getMediaSrc(slot.key);
+          if (!src && !appState.isOwner) continue;
+
+          if (src) {
+            imageSlotsHtmlParts.push(`
+              <div class="media-slot">
+                <img src="${src}" alt="${escapeHtml(slot.label)}" onclick="openLightboxImage(this.src, '${escapeAttr(proj.title + ' — ' + slot.label)}')" />
+                <div class="slot-caption-bar">
+                  <span class="slot-label">${escapeHtml(slot.label)}</span>
+                  <div class="slot-controls owner-only">
+                    <button type="button" onclick="triggerSlotUpload('${slot.key}', 'image')" class="slot-btn">Replace</button>
+                    <button type="button" onclick="clearSlot('${slot.key}')" class="slot-btn del">Remove</button>
+                  </div>
+                </div>
+              </div>
+            `);
+          } else {
+            imageSlotsHtmlParts.push(`
+              <div
+                class="media-slot empty-slot owner-only"
+                ondragover="handleDragOver(event, this)"
+                ondragleave="handleDragLeave(this)"
+                ondrop="handleSlotDrop(event, '${slot.key}', 'image')"
+              >
+                <button type="button" onclick="triggerSlotUpload('${slot.key}', 'image')" class="slot-upload-trigger">
+                  <span style="font-weight: 700; font-size: 0.8rem;">+ ${escapeHtml(slot.label)}</span>
+                  <span style="font-size: 0.72rem; color: var(--text-subtle);">Click or drop image</span>
+                </button>
+              </div>
+            `);
+          }
+        }
+
+        // Video slot: in Public View, only render if media exists
+        const vidSrc = await getMediaSrc(proj.videoSlot.key);
+        let videoSlotHtml = '';
+        if (vidSrc) {
+          videoSlotHtml = `
+            <div class="media-slot">
+              <video src="${vidSrc}" controls playsinline></video>
+              <div class="slot-caption-bar">
+                <span class="slot-label">${escapeHtml(proj.videoSlot.label)}</span>
+                <div class="slot-controls owner-only">
+                  <button type="button" onclick="openLightboxVideo('${vidSrc}', '${escapeAttr(proj.title + ' — ' + proj.videoSlot.label)}')" class="slot-btn">Expand</button>
+                  <button type="button" onclick="triggerSlotUpload('${proj.videoSlot.key}', 'video')" class="slot-btn">Replace</button>
+                  <button type="button" onclick="clearSlot('${proj.videoSlot.key}')" class="slot-btn del">Remove</button>
+                </div>
+              </div>
+            </div>
+          `;
+        } else if (appState.isOwner) {
+          videoSlotHtml = `
+            <div
+              class="media-slot empty-slot owner-only"
+              ondragover="handleDragOver(event, this)"
+              ondragleave="handleDragLeave(this)"
+              ondrop="handleSlotDrop(event, '${proj.videoSlot.key}', 'video')"
+            >
+              <button type="button" onclick="triggerSlotUpload('${proj.videoSlot.key}', 'video')" class="slot-upload-trigger">
+                <span style="font-weight: 700; font-size: 0.82rem;">+ ${escapeHtml(proj.videoSlot.label)}</span>
+                <span style="font-size: 0.72rem; color: var(--text-subtle);">Click or drop video (MP4 / WebM)</span>
+              </button>
+            </div>
+          `;
+        }
+
+        const hasAnyRenderedMedia = imageSlotsHtmlParts.length > 0 || Boolean(videoSlotHtml);
+
+        const roleChip = proj.role
+          ? `<span class="chip-role">My Role: ${escapeHtml(proj.role)}</span>`
+          : '';
+        const teamChip = proj.team
+          ? `<span class="chip-team">Team: ${escapeHtml(proj.team)}</span>`
+          : '';
+
+        const domainHtml = proj.domain.length
+          ? `<div class="meta-line"><span class="meta-label">Project Domain</span><span class="meta-text-value">${proj.domain.map(escapeHtml).join(' | ')}</span></div>`
+          : '';
+
+        const toolsHtml = proj.tools.length
+          ? `<div class="meta-line"><span class="meta-label">${proj.id === 'rover-tarkashya' ? 'Tools & Technologies' : 'Tools Used'}</span><div class="tool-tags">${proj.tools.map((t) => `<span class="tool-tag">${escapeHtml(t)}</span>`).join('')}</div></div>`
+          : '';
+
+        const contribHtml = proj.contributions.length
+          ? `
+            <div class="contrib-box">
+              <h4>My Contributions</h4>
+              <ul class="contrib-list">
+                ${proj.contributions.map((c) => `<li><span class="contrib-bullet">▹</span><span>${escapeHtml(c)}</span></li>`).join('')}
+              </ul>
+            </div>
+          `
+          : '';
+
+        card.innerHTML = `
+          <div class="project-top">
+            <div>
+              <div class="project-meta-chips">
+                <span class="eyebrow">${escapeHtml(proj.number)}</span>
+                ${roleChip}
+                ${teamChip}
+              </div>
+              <h3 class="project-title">${escapeHtml(proj.title)}</h3>
+            </div>
+            <div class="domain-pills">
+              ${proj.domain.map((d) => `<span class="domain-pill">${escapeHtml(d)}</span>`).join('')}
+            </div>
+          </div>
+
+          <div class="project-body">
+            <div>
+              <div class="project-paragraphs">
+                ${proj.paragraphs.map((p) => `<p>${escapeHtml(p)}</p>`).join('')}
+              </div>
+
+              ${contribHtml}
+
+              <div class="project-footer-meta">
+                ${toolsHtml}
+                ${domainHtml}
+              </div>
+
+              <div style="margin-top: 1.1rem;" class="owner-only">
+                <button type="button" onclick="addProjectImageSlot('${proj.id}')" class="btn btn-secondary">+ Add Image Slot</button>
+              </div>
+            </div>
+
+            <div class="project-media-stack">
+              ${imageSlotsHtmlParts.length ? `<div class="project-img-grid">${imageSlotsHtmlParts.join('')}</div>` : ''}
+              ${videoSlotHtml}
+              ${!hasAnyRenderedMedia ? `<div class="public-empty-note">Media showcase pending upload</div>` : ''}
+            </div>
+          </div>
+        `;
+
+        container.appendChild(card);
+      }
+    }
+
+    function triggerSlotUpload(key, type) {
+      if (!appState.isOwner) return;
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.accept = type === 'video' ? 'video/*' : 'image/*';
+      input.onchange = async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        await putBlob(key, file);
+        await renderProjects();
+        showToast('Project media saved');
+      };
+      input.click();
+    }
+
+    async function handleSlotDrop(e, key, expectedType) {
+      e.preventDefault();
+      handleDragLeave(e.currentTarget);
+      if (!appState.isOwner) return;
+      const file = e.dataTransfer.files[0];
+      if (!file) return;
+      if (expectedType === 'video' && !file.type.startsWith('video/')) {
+        showToast('Please drop a video file.');
+        return;
+      }
+      if (expectedType === 'image' && !file.type.startsWith('image/')) {
+        showToast('Please drop an image file.');
+        return;
+      }
+      await putBlob(key, file);
+      await renderProjects();
+      showToast('Project media saved');
+    }
+
+    async function clearSlot(key) {
+      if (!appState.isOwner) return;
+      await removeBlob(key);
+      await renderProjects();
+      showToast('Media removed');
+    }
+
+    async function addProjectImageSlot(projectId) {
+      if (!appState.isOwner) return;
+      const proj = appState.projects.find((p) => p.id === projectId);
+      if (!proj) return;
+      const nextNum = proj.imageSlots.length + 1;
+      proj.imageSlots.push({
+        key: `${projectId}_img_${Date.now()}`,
+        label: `Additional View ${nextNum}`
+      });
+      persistMetadata();
+      await renderProjects();
+      showToast('Added image slot');
+    }
+
+    // =====================================================================
+    // ADD NEW PROJECT MODAL
+    // =====================================================================
+    function openNewProjectModal() {
+      if (!appState.isOwner) return;
+      document.getElementById('newProjectModal').classList.remove('hidden');
+    }
+
+    function closeNewProjectModal() {
+      document.getElementById('newProjectModal').classList.add('hidden');
+      document.getElementById('newProjectForm').reset();
+    }
+
+    async function handleCreateProject(e) {
+      e.preventDefault();
+      if (!appState.isOwner) return;
+
+      const title = document.getElementById('npTitle').value.trim();
+      const descRaw = document.getElementById('npDesc').value.trim();
+      if (!title || !descRaw) return;
+
+      const role = document.getElementById('npRole').value.trim();
+      const team = document.getElementById('npTeam').value.trim();
+      const tools = document.getElementById('npTools').value.split(',').map((s) => s.trim()).filter(Boolean);
+      const domain = document.getElementById('npDomain').value.split(',').map((s) => s.trim()).filter(Boolean);
+      const contributions = document.getElementById('npContrib').value.split('\n').map((s) => s.trim()).filter(Boolean);
+
+      const id = `proj_${Date.now()}`;
+      const numStr = `PROJECT ${String(appState.projects.length + 1).padStart(2, '0')}`;
+
+      appState.projects.push({
+        id,
+        number: numStr,
+        title,
+        role,
+        team,
+        tools: tools.length ? tools : ['Blender', 'SolidWorks'],
+        domain: domain.length ? domain : ['3D Design'],
+        paragraphs: descRaw.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean),
+        contributions,
+        imageSlots: [
+          { key: `${id}_img_1`, label: 'Render / CAD View 1' },
+          { key: `${id}_img_2`, label: 'Render / CAD View 2' },
+          { key: `${id}_img_3`, label: 'Render / CAD View 3' }
+        ],
+        videoSlot: { key: `${id}_vid_1`, label: 'Project Animation / Demo Video' }
+      });
+
+      persistMetadata();
+      closeNewProjectModal();
+      await renderProjects();
+      showToast('Project created');
+    }
+
+    // =====================================================================
+    // GALLERY SECTION
+    // =====================================================================
+    function setGalleryFilter(filter) {
+      appState.galleryFilter = filter;
+      ['all', 'image', 'video'].forEach((key) => {
+        const el = document.getElementById(`tab${key.charAt(0).toUpperCase() + key.slice(1)}`);
+        if (el) el.classList.toggle('active', key === filter);
+      });
+      renderGallery();
+    }
+
+    async function handleGalleryFileChange(e) {
+      if (!appState.isOwner) return;
+      const files = Array.from(e.target.files || []);
+      e.target.value = '';
+      await ingestGalleryFiles(files);
+    }
+
+    async function handleGalleryDrop(e) {
+      e.preventDefault();
+      handleDragLeave(e.currentTarget);
+      if (!appState.isOwner) return;
+      const files = Array.from(e.dataTransfer.files || []);
+      await ingestGalleryFiles(files);
+    }
+
+    async function ingestGalleryFiles(files) {
+      let added = 0;
+      for (const file of files) {
+        const isImg = file.type.startsWith('image/');
+        const isVid = file.type.startsWith('video/');
+        if (!isImg && !isVid) continue;
+        const id = `gal_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`;
+        await putBlob(id, file);
+        appState.gallery.unshift({
+          id,
+          name: file.name.replace(/\.[^/.]+$/, ''),
+          type: isVid ? 'video' : 'image'
+        });
+        added++;
+      }
+      if (added > 0) {
+        persistMetadata();
+        await renderGallery();
+        showToast(`Added ${added} media item${added > 1 ? 's' : ''}`);
+      }
+    }
+
+    async function deleteGalleryItem(id) {
+      if (!appState.isOwner) return;
+      appState.gallery = appState.gallery.filter((item) => item.id !== id);
+      persistMetadata();
+      await removeBlob(id);
+      await renderGallery();
+      showToast('Removed from gallery');
+    }
+
+    async function renderGallery() {
+      const grid = document.getElementById('galleryGrid');
+      const items = appState.gallery.filter((it) =>
+        appState.galleryFilter === 'all' ? true : it.type === appState.galleryFilter
+      );
+
+      const cards = [];
+      for (const item of items) {
+        const src = await getMediaSrc(item.id);
+        if (!src) continue;
+
+        cards.push(`
+          <div class="gallery-item">
+            <div class="gallery-thumb">
+              ${item.type === 'video'
+                ? `<video src="${src}" controls playsinline></video>`
+                : `<img src="${src}" alt="${escapeHtml(item.name)}" onclick="openLightboxImage(this.src, '${escapeAttr(item.name)}')" />`
+              }
+            </div>
+            <div class="gallery-item-bar">
+              <div class="gallery-item-title">
+                <span class="gallery-kind">${item.type}</span>
+                <span>${escapeHtml(item.name)}</span>
+              </div>
+              <div style="display: flex; gap: 0.35rem; flex-shrink: 0;">
+                ${item.type === 'video' ? `<button type="button" onclick="openLightboxVideo('${src}', '${escapeAttr(item.name)}')" class="btn btn-secondary" style="padding: 0.25rem 0.55rem; font-size: 0.74rem;">Full</button>` : ''}
+                <button type="button" onclick="deleteGalleryItem('${item.id}')" class="btn btn-danger owner-only" style="padding: 0.25rem 0.55rem; font-size: 0.74rem;">Delete</button>
+              </div>
+            </div>
+          </div>
+        `);
+      }
+
+      if (cards.length === 0) {
+        grid.innerHTML = `<div class="public-empty-note" style="grid-column: 1 / -1;">No ${appState.galleryFilter === 'all' ? 'media' : appState.galleryFilter + 's'} to display.</div>`;
+      } else {
+        grid.innerHTML = cards.join('');
+      }
+    }
+
+    // =====================================================================
+    // EMBEDDED SNAPSHOT EXPORT FOR GITHUB PAGES
+    // =====================================================================
+    function blobToDataUrl(blob) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = () => reject(reader.error);
+        reader.readAsDataURL(blob);
+      });
+    }
+
+    async function collectMediaDataUrls() {
+      const mediaObj = {};
+      const keys = new Set(['profile_photo']);
+
+      for (const proj of appState.projects) {
+        for (const slot of proj.imageSlots) keys.add(slot.key);
+        if (proj.videoSlot && proj.videoSlot.key) keys.add(proj.videoSlot.key);
+      }
+      for (const item of appState.gallery) {
+        keys.add(item.id);
+      }
+
+      let skippedLarge = 0;
+
+      for (const key of keys) {
+        const localBlob = await getBlob(key);
+        if (localBlob) {
+          if (localBlob.size <= MAX_EMBED_BYTES) {
+            mediaObj[key] = await blobToDataUrl(localBlob);
+          } else {
+            skippedLarge++;
+          }
+        } else if (embeddedMediaMap.has(key)) {
+          mediaObj[key] = embeddedMediaMap.get(key);
+        }
+      }
+
+      return { mediaObj, skippedLarge };
+    }
+
+    async function exportPublicHTML() {
+      if (!appState.isOwner) return;
+      showToast('Building standalone HTML snapshot...');
+
+      const { mediaObj, skippedLarge } = await collectMediaDataUrls();
+
+      const snapshotPayload = {
+        displayName: appState.displayName,
+        projects: appState.projects,
+        gallery: appState.gallery,
+        media: mediaObj
+      };
+
+      // Clone live document so we don't mutate active editing session
+      const docClone = document.documentElement.cloneNode(true);
+      docClone.classList.remove('light');
+      docClone.classList.add('dark');
+
+      const bodyClone = docClone.querySelector('body');
+      bodyClone.classList.remove('owner-unlocked');
+
+      // Reset interactive/transient elements in exported HTML
+      const profileImgClone = docClone.querySelector('#profileImg');
+      if (profileImgClone) {
+        profileImgClone.src = '';
+        profileImgClone.classList.add('hidden');
+      }
+      docClone.querySelector('#projectsContainer').innerHTML = '';
+      docClone.querySelector('#galleryGrid').innerHTML = '';
+      docClone.querySelector('#expertiseGrid').innerHTML = '';
+      docClone.querySelector('#publicNameHeading').textContent = appState.displayName;
+      docClone.querySelector('#publicNameHeading').classList.remove('hidden');
+
+      const scripts = docClone.querySelectorAll('script');
+      const mainScript = scripts[scripts.length - 1];
+      if (mainScript) {
+        const serializedJson = JSON.stringify(snapshotPayload).replace(/<\/script>/gi, '<\\/script>');
+        let updatedCode = mainScript.textContent.replace(
+          /window\.__EMBEDDED_PORTFOLIO__\s*=\s*null\s*;/,
+          `window.__EMBEDDED_PORTFOLIO__ = ${serializedJson};`
+        );
+        updatedCode = updatedCode.replace(
+          /isOwner:\s*false\s*,\s*\/\/\s*Always defaults to Public View/,
+          'isOwner: false, // Always defaults to Public View'
+        );
+        mainScript.textContent = updatedCode;
+      }
+
+      const finalHtml = '<!DOCTYPE html>\n' + docClone.outerHTML;
+      const outBlob = new Blob([finalHtml], { type: 'text/html;charset=utf-8' });
+      const downloadUrl = URL.createObjectURL(outBlob);
+
+      const link = document.createElement('a');
+      link.href = downloadUrl;
+      link.download = 'index.html';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      setTimeout(() => URL.revokeObjectURL(downloadUrl), 1500);
+
+      if (skippedLarge > 0) {
+        showToast(`Exported index.html (${skippedLarge} large file(s) >18MB skipped for file size).`);
+      } else {
+        showToast('Exported standalone index.html for GitHub Pages!');
+      }
+    }
+
+    // =====================================================================
+    // LIGHTBOX & UTILITIES
+    // =====================================================================
+    function openLightboxImage(src, title) {
+      if (!src) return;
+      const vid = document.getElementById('lightboxVideo');
+      const img = document.getElementById('lightboxImg');
+      vid.pause();
+      vid.src = '';
+      vid.classList.add('hidden');
+      img.src = src;
+      img.classList.remove('hidden');
+      document.getElementById('lightboxTitle').textContent = title || 'Image Preview';
+      document.getElementById('lightboxModal').classList.remove('hidden');
+    }
+
+    function openLightboxVideo(src, title) {
+      if (!src) return;
+      const vid = document.getElementById('lightboxVideo');
+      const img = document.getElementById('lightboxImg');
+      img.src = '';
+      img.classList.add('hidden');
+      vid.src = src;
+      vid.classList.remove('hidden');
+      document.getElementById('lightboxTitle').textContent = title || 'Video Preview';
+      document.getElementById('lightboxModal').classList.remove('hidden');
+    }
+
+    function closeLightbox() {
+      const vid = document.getElementById('lightboxVideo');
+      vid.pause();
+      vid.src = '';
+      document.getElementById('lightboxModal').classList.add('hidden');
+    }
+
+    function handleDragOver(e, el) {
+      if (!appState.isOwner) return;
+      e.preventDefault();
+      el.classList.add('drop-active');
+    }
+
+    function handleDragLeave(el) {
+      el.classList.remove('drop-active');
+    }
+
+    function escapeHtml(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function escapeAttr(str) {
+      return String(str || '')
+        .replace(/\\/g, '\\\\')
+        .replace(/'/g, "\\'")
+        .replace(/"/g, '&quot;');
+    }
+
+    function showToast(msg) {
+      const wrap = document.getElementById('toastWrap');
+      const el = document.createElement('div');
+      el.className = 'toast-item';
+      el.textContent = msg;
+      wrap.appendChild(el);
+      setTimeout(() => {
+        el.style.opacity = '0';
+        el.style.transition = 'opacity 0.25s ease';
+        setTimeout(() => el.remove(), 260);
+      }, 2600);
+    }
+
+    async function renderAll() {
+      renderExpertise();
+      await renderProfilePhoto();
+      await renderProjects();
+      await renderGallery();
+    }
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      initTheme();
+      hydrateState();
+      syncOwnerModeUI();
+      await renderAll();
+    });
+  </script>
+</body>
+</html>
